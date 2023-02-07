@@ -17,6 +17,7 @@ public class Main {
                 maxSalary = currentSalary;
             } else {
                 maxSalary = maxSalary;
+
             }
         }
         return maxSalary;
