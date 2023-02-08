@@ -1,64 +1,5 @@
 public class Main {
 
-    public static long spentOnSalariesThisMonth(Employee employee[]) {
-        long overallSalaries = 0;
-        for (int i = 0; i < employee.length; i++) {
-            overallSalaries += employee[i].getSalary();
-        }
-        return overallSalaries;
-
-    }
-
-    public static long findMaxSalary (Employee employee[]) {
-        long maxSalary = -1;
-        for (int i = 0; i < employee.length; i++ ) {
-            long currentSalary = employee[i].getSalary();
-            if (currentSalary > maxSalary) {
-                maxSalary = currentSalary;
-            } else {
-                maxSalary = maxSalary;
-
-            }
-        }
-        return maxSalary;
-    }
-
-    public static long findMinSalary(Employee employee[]) {
-        long minSalary = 999_999;
-        for (int i = 0; i < employee.length; i++ ) {
-            long currentSalary = employee[i].getSalary();
-            if (currentSalary > minSalary) {
-                minSalary = minSalary;
-            } else {
-                minSalary = currentSalary;
-            }
-        }
-        return minSalary;
-    }
-
-    public static long findAverageSalary(Employee employee[]) {
-        long overallSalary = spentOnSalariesThisMonth(employee);
-        long averageSalary = overallSalary/employee.length;
-        return averageSalary;
-    }
-
-    public static void printAllEmployees(Employee employee[]) {
-        for (int i = 0; i < employee.length; i++) {
-            //Employee id++;
-            System.out.println(employee[i]);
-        }
-    }
-
-    public static void printAllNames(Employee employee[]) {
-        for (int i = 0; i < employee.length; i++) {
-            //Employee id++;
-            int id = i + 1;
-            System.out.println("Employee №" + id + " " + employee[i].getFullName());
-        }
-    }
-
-
-
     public static void main(String[] args) {
         System.out.println("\nMidterm 1, 31.01.2023");
         Employee[] employee = new Employee[10];
@@ -78,21 +19,67 @@ public class Main {
 
         //find min salary method check
         long minSalary = findMinSalary(employee);
-        System.out.println(minSalary);
+        System.out.println("\nThe lowest salary is " + minSalary);
 
         //count overall salary expenditures this month method check
         long overallSalaries = spentOnSalariesThisMonth(employee);
-        System.out.println(overallSalaries);
+        System.out.println("Overall salary expenditures this month will be " + overallSalaries);
 
         //find max salary method check
         long maxSalary = findMaxSalary(employee);
-        System.out.println(maxSalary);
+        System.out.println("The biggest salary is " + maxSalary);
 
         //find average salary method check
-        long averageSalary = findAverageSalary(employee);
-        System.out.println(averageSalary);
+        double averageSalary = findAverageSalary(employee);
+        System.out.println("Average salary is " + averageSalary + "\n");
 
         //check print names method
         printAllNames(employee);
+    }
+    public static long spentOnSalariesThisMonth(Employee[] employees) {
+        long overallSalaries = 0;
+        for (Employee employee: employees) {
+            overallSalaries += employee.getSalary();
+        }
+        return overallSalaries;
+
+    }
+
+    public static long findMaxSalary (Employee[] employees) {
+        long maxSalary = -1;
+        for (Employee employee : employees) {
+            long currentSalary = employee.getSalary();
+            if (currentSalary > maxSalary) {
+                maxSalary = currentSalary;
+            }
+        }
+        return maxSalary;
+    }
+
+    public static long findMinSalary(Employee[] employee) {
+        long minSalary = 999_999;
+        for (Employee value : employee) {
+            long currentSalary = value.getSalary();
+            minSalary = Math.min(currentSalary, minSalary);
+        }
+        return minSalary;
+    }
+
+    public static double findAverageSalary(Employee[] employees) {
+        long overallSalary = spentOnSalariesThisMonth(employees);
+        return (double) overallSalary/employees.length;
+    }
+
+    public static void printAllEmployees(Employee[] employees) {
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
+    }
+
+    public static void printAllNames(Employee[] employees) {
+        for (Employee employee : employees) {
+
+            System.out.println("Employee №" + employee.getIdNumber() + ": " + employee.getFullName());
+        }
     }
 }

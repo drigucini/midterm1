@@ -4,13 +4,14 @@ public class Employee {
     private String fullName;
     private int department;
     private long salary;
-    private static int id;
+    private int idNumber;
+    private static int counter;
 
     public Employee(String fullName, int department, long salary) {
         if (salary < 0) {
             throw new IllegalArgumentException("Salary cannot be negative");
         }
-        this.id = id;
+        idNumber = ++counter;
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
@@ -20,15 +21,18 @@ public class Employee {
         return this.fullName;
     }
 
+    public int getIdNumber() {
+        return idNumber;
+    }
     public int getDepartment() {
-        return this.department;
+        return department;
     }
 
     public long getSalary() {
-        return this.salary;
+        return salary;
     }
 
-    public void setDepartment(int Department) {
+    public void setDepartment(int department) {
         this.department = department;
     }
 
@@ -41,7 +45,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "\nEmployee №" + id +
+        return "\nEmployee №" + idNumber +
                 "\nFull name: " + fullName +
                 ", department #" + department +
                 ", salary " + salary +
