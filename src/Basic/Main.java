@@ -1,3 +1,7 @@
+package Basic;
+
+import Basic.Employee;
+
 public class Main {
 
     public static long spentOnSalariesThisMonth(Employee employee[]) {
@@ -43,16 +47,16 @@ public class Main {
 
     public static void printAllEmployees(Employee employee[]) {
         for (int i = 0; i < employee.length; i++) {
-            //Employee id++;
+            //Basic.Employee.id++;
             System.out.println(employee[i]);
         }
     }
 
     public static void printAllNames(Employee employee[]) {
         for (int i = 0; i < employee.length; i++) {
-            //Employee id++;
+            //Basic.Employee id++;
             int id = i + 1;
-            System.out.println("Employee №" + id + " " + employee[i].getFullName());
+            System.out.println("Basic.Employee №" + id + " " + employee[i].getFullName());
         }
     }
 

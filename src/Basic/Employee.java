@@ -1,10 +1,12 @@
+package Basic;
+
 import java.util.Objects;
 
 public class Employee {
     private String fullName;
     private int department;
     private long salary;
-    private static int id = 0;
+    public static int id = 0;
 
     public Employee(String fullName, int department, long salary) {
         this.fullName = fullName;
@@ -33,7 +35,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "\nEmployee №" + id +
+        return "\nBasic.Employee №" + id +
                 "\nFull name: " + fullName +
                 ", department #" + department +
                 ", salary " + salary +
