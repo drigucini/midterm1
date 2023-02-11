@@ -1,11 +1,13 @@
 import java.util.Objects;
 
 public class Employee {
-    private String fullName;
+    private final String fullName;
     private int department;
     private long salary;
-    private int idNumber;
+    private final int idNumber;
     private static int counter;
+
+
 
     public Employee(String fullName, int department, long salary) {
         if (salary < 0) {
@@ -17,6 +19,7 @@ public class Employee {
         this.salary = salary;
 
     }
+
     public String getFullName() {
         return this.fullName;
     }
@@ -24,6 +27,7 @@ public class Employee {
     public int getIdNumber() {
         return idNumber;
     }
+
     public int getDepartment() {
         return department;
     }

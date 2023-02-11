@@ -1,40 +1,41 @@
 public class Main {
+    static Employee[] employees = new Employee[10];
+
 
     public static void main(String[] args) {
         System.out.println("\nMidterm 1, 31.01.2023");
-        Employee[] employee = new Employee[10];
-        employee[0] = new Employee("John Smith", 1, 100_000);
-        employee[1] = new Employee("Tracy Smith", 3, 200_000);
-        employee[2] = new Employee("Anna Kraft", 5, 300_000);
-        employee[3] = new Employee("Luise Montpelier", 3, 10_000);
-        employee[4] = new Employee("Abraham Kennedy", 4, 12_000);
-        employee[5] = new Employee("Zu Tzu", 2, 100_500);
-        employee[6] = new Employee("Fernandez Lao", 1, 110_500);
-        employee[7] = new Employee("Lyubov Koroleva ", 2, 70_000);
-        employee[8] = new Employee("Ivan Drozdov", 1, 750_000);
-        employee[9] = new Employee("Sergey Smirnoff", 5, 90_000);
+        employees[0] = new Employee("John Smith", 1, 100_000);
+        employees[1] = new Employee("Tracy Smith", 3, 200_000);
+        employees[2] = new Employee("Anna Kraft", 5, 300_000);
+        employees[3] = new Employee("Luise Montpelier", 3, 10_000);
+        employees[4] = new Employee("Abraham Kennedy", 4, 12_000);
+        employees[5] = new Employee("Zu Tzu", 2, 100_500);
+        employees[6] = new Employee("Fernandez Lao", 1, 110_500);
+        employees[7] = new Employee("Lyubov Koroleva ", 2, 70_000);
+        employees[8] = new Employee("Ivan Drozdov", 1, 750_000);
+        employees[9] = new Employee("Sergey Smirnoff", 5, 90_000);
 
         //check print method
-        printAllEmployees(employee);
+        printAllEmployees(employees);
 
         //find min salary method check
-        long minSalary = findMinSalary(employee);
+        long minSalary = findMinSalary(employees);
         System.out.println("\nThe lowest salary is " + minSalary);
 
         //count overall salary expenditures this month method check
-        long overallSalaries = spentOnSalariesThisMonth(employee);
+        long overallSalaries = spentOnSalariesThisMonth(employees);
         System.out.println("Overall salary expenditures this month will be " + overallSalaries);
 
         //find max salary method check
-        long maxSalary = findMaxSalary(employee);
+        long maxSalary = findMaxSalary(employees);
         System.out.println("The biggest salary is " + maxSalary);
 
         //find average salary method check
-        double averageSalary = findAverageSalary(employee);
+        double averageSalary = findAverageSalary(employees);
         System.out.println("Average salary is " + averageSalary + "\n");
 
         //check print names method
-        printAllNames(employee);
+        printAllNames(employees);
     }
     public static long spentOnSalariesThisMonth(Employee[] employees) {
         long overallSalaries = 0;
