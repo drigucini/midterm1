@@ -19,8 +19,9 @@ public class Main {
         printAllEmployees(employees);
 
         //find min salary method check
+        System.out.println("\nfind min salary method check");
         long minSalary = findMinSalary(employees);
-        System.out.println("\nThe lowest salary is " + minSalary);
+        System.out.println("The lowest salary is " + minSalary);
 
         //count overall salary expenditures this month method check
         long overallSalaries = spentOnSalariesThisMonth(employees);
@@ -43,7 +44,8 @@ public class Main {
         printAllEmployees(indexedEmployees);
 
         //find min salary by department method checker
-        findMinSalaryByDepartment(employees,1);
+        findMinSalaryByDepartment(employees,3);
+
 
     }
     public static long spentOnSalariesThisMonth(Employee[] employees) {
@@ -100,12 +102,15 @@ public class Main {
         return employees;
     }
 
-    public static void findMinSalaryByDepartment(Employee[] employees, int department) {
+    public static Employee findMinSalaryByDepartment(Employee[] employees, int department) {
+        Employee[] employeesByDepartment = new Employee[employees.length];
         for (int i = 0; i < employees.length; i++) {
             if (department == employees[i].getDepartment()) {
-                System.out.println(employees[i]);
+                employeesByDepartment[i] = employees[i];
             }
         }
+        return employeesByDepartment[1];
+
     }
 
 }
