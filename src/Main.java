@@ -38,7 +38,9 @@ public class Main {
         printAllNames(employees);
 
         //index salaries check method
-        System.out.println("\n" + indexSalaries(employees, 15));
+        System.out.println("\nindex salaries check method");
+        Employee[] indexedEmployees = indexSalaries(employees, 15);
+        printAllEmployees(indexedEmployees);
 
         //find min salary by department method checker
         findMinSalaryByDepartment(employees,1);
@@ -91,11 +93,11 @@ public class Main {
     }
 
     public static Employee[] indexSalaries(Employee[] employees, int index) {
-        Employee[] employeeIndexed = employees;
         for (Employee employee: employees) {
-            double indexedSalary = index*employee.getSalary()/100;
+            long indexedSalary = employee.getSalary() + index*employee.getSalary()/100;
+            employee.setSalary(indexedSalary);
         }
-        return employeeIndexed;
+        return employees;
     }
 
     public static void findMinSalaryByDepartment(Employee[] employees, int department) {
