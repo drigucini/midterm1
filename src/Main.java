@@ -36,6 +36,13 @@ public class Main {
 
         //check print names method
         printAllNames(employees);
+
+        //index salaries check method
+        System.out.println("\n" + indexSalaries(employees, 15));
+
+        //find min salary by department method checker
+        findMinSalaryByDepartment(employees,1);
+
     }
     public static long spentOnSalariesThisMonth(Employee[] employees) {
         long overallSalaries = 0;
@@ -79,8 +86,24 @@ public class Main {
 
     public static void printAllNames(Employee[] employees) {
         for (Employee employee : employees) {
-
             System.out.println("Employee №" + employee.getIdNumber() + ": " + employee.getFullName());
         }
     }
+
+    public static Employee[] indexSalaries(Employee[] employees, int index) {
+        Employee[] employeeIndexed = employees;
+        for (Employee employee: employees) {
+            double indexedSalary = index*employee.getSalary()/100;
+        }
+        return employeeIndexed;
+    }
+
+    public static void findMinSalaryByDepartment(Employee[] employees, int department) {
+        for (int i = 0; i < employees.length; i++) {
+            if (department == employees[i].getDepartment()) {
+                System.out.println(employees[i]);
+            }
+        }
+    }
+
 }
