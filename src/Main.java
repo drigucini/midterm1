@@ -20,22 +20,26 @@ public class Main {
 
         //find min salary method check
         System.out.println("\nfind min salary method check");
-        long minSalary = findMinSalary(employees);
+        long minSalary = findMinSalary();
         System.out.println("The lowest salary is " + minSalary);
 
         //count overall salary expenditures this month method check
-        long overallSalaries = spentOnSalariesThisMonth(employees);
+        System.out.println("\nFind overall salary expenditures method check");
+        long overallSalaries = spentOnSalariesThisMonth();
         System.out.println("Overall salary expenditures this month will be " + overallSalaries);
 
         //find max salary method check
-        long maxSalary = findMaxSalary(employees);
+        System.out.println("\nFind max salary method check");
+        long maxSalary = findMaxSalary();
         System.out.println("The biggest salary is " + maxSalary);
 
         //find average salary method check
-        double averageSalary = findAverageSalary(employees);
+        System.out.println("\nFind average salary method check");
+        double averageSalary = findAverageSalary();
         System.out.println("Average salary is " + averageSalary + "\n");
 
         //check print names method
+        System.out.println("\nPrint all employees method check");
         printAllNames(employees);
 
         //index salaries check method
@@ -48,7 +52,7 @@ public class Main {
 
 
     }
-    public static long spentOnSalariesThisMonth(Employee[] employees) {
+    public static long spentOnSalariesThisMonth() {
         long overallSalaries = 0;
         for (Employee employee: employees) {
             overallSalaries += employee.getSalary();
@@ -57,7 +61,7 @@ public class Main {
 
     }
 
-    public static long findMaxSalary (Employee[] employees) {
+    public static long findMaxSalary () {
         long maxSalary = -1;
         for (Employee employee : employees) {
             long currentSalary = employee.getSalary();
@@ -68,17 +72,17 @@ public class Main {
         return maxSalary;
     }
 
-    public static long findMinSalary(Employee[] employee) {
+    public static long findMinSalary() {
         long minSalary = 999_999;
-        for (Employee value : employee) {
+        for (Employee value : employees) {
             long currentSalary = value.getSalary();
             minSalary = Math.min(currentSalary, minSalary);
         }
         return minSalary;
     }
 
-    public static double findAverageSalary(Employee[] employees) {
-        long overallSalary = spentOnSalariesThisMonth(employees);
+    public static double findAverageSalary() {
+        long overallSalary = spentOnSalariesThisMonth();
         return (double) overallSalary/employees.length;
     }
 
