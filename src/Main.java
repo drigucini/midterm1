@@ -50,8 +50,16 @@ public class Main {
         //find min salary by department method checker
         findMinSalaryByDepartment(employees,3);
 
+        System.out.println("\nDepartment method check");
+        Employee[] employeeDep1 = getEmployeesByDepartment(employees, 1);
+        printAllEmployees(employeeDep1);
+        getEmployeesByDepartment(employees, 1);
+
 
     }
+
+
+
     public static long spentOnSalariesThisMonth() {
         long overallSalaries = 0;
         for (Employee employee: employees) {
@@ -62,7 +70,7 @@ public class Main {
     }
 
     public static long findMaxSalary () {
-        long maxSalary = -1;
+        long maxSalary = employees[0].getSalary();
         for (Employee employee : employees) {
             long currentSalary = employee.getSalary();
             if (currentSalary > maxSalary) {
@@ -73,7 +81,7 @@ public class Main {
     }
 
     public static long findMinSalary() {
-        long minSalary = 999_999;
+        long minSalary = employees[0].getSalary();
         for (Employee value : employees) {
             long currentSalary = value.getSalary();
             minSalary = Math.min(currentSalary, minSalary);
@@ -114,7 +122,23 @@ public class Main {
             }
         }
         return employeesByDepartment[1];
-
     }
 
+    private static Employee[] getEmployeesByDepartment(Employee[] employees, int department) {
+        int arraySize = 0;
+        for (int b = 0; b < employees.length; b++) {
+            if (employees[b].getDepartment() == department) {
+                arraySize++;
+            }
+        }
+        Employee[] employeesByDepartment = new Employee[arraySize];
+        for (int a = 0; a < employeesByDepartment.length; a++) {
+            for (int c = 0; c < employees.length; c++) {
+                if (employees[c].getDepartment() == department) {
+                    employeesByDepartment[a] = employees[c];
+                }
+            }
+        }
+        return employeesByDepartment;
+    }
 }
