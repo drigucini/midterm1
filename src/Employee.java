@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 public class Employee {
-    private final String fullName;
+    private  final String fullName;
     private int department;
     private long salary;
     private final int idNumber;

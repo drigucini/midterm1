@@ -48,12 +48,8 @@ public class Main {
         printAllEmployees(indexedEmployees);
 
         //find min salary by department method checker
-        findMinSalaryByDepartment(employees,3);
-
-        System.out.println("\nDepartment method check");
-        Employee[] employeeDep1 = getEmployeesByDepartment(employees, 1);
-        printAllEmployees(employeeDep1);
-        getEmployeesByDepartment(employees, 1);
+        System.out.println("\nmin salary by department check method");
+        System.out.println(findMinSalaryByDepartment(employees,3));
 
 
     }
@@ -115,30 +111,16 @@ public class Main {
     }
 
     public static Employee findMinSalaryByDepartment(Employee[] employees, int department) {
-        Employee[] employeesByDepartment = new Employee[employees.length];
+        Employee employeeMinSalary = new Employee("A", 1, 2);
+        long minSalary = -1;
         for (int i = 0; i < employees.length; i++) {
             if (department == employees[i].getDepartment()) {
-                employeesByDepartment[i] = employees[i];
-            }
-        }
-        return employeesByDepartment[1];
-    }
-
-    private static Employee[] getEmployeesByDepartment(Employee[] employees, int department) {
-        int arraySize = 0;
-        for (int b = 0; b < employees.length; b++) {
-            if (employees[b].getDepartment() == department) {
-                arraySize++;
-            }
-        }
-        Employee[] employeesByDepartment = new Employee[arraySize];
-        for (int a = 0; a < employeesByDepartment.length; a++) {
-            for (int c = 0; c < employees.length; c++) {
-                if (employees[c].getDepartment() == department) {
-                    employeesByDepartment[a] = employees[c];
+                if (minSalary > employees[i].getSalary()) {
+                    minSalary = employees[i].getSalary();
+                    employeeMinSalary.equals(employees[i]);
                 }
             }
         }
-        return employeesByDepartment;
+        return employeeMinSalary;
     }
 }
