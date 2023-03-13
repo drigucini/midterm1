@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Main {
     static Employee[] employees = new Employee[10];
 
@@ -42,19 +44,32 @@ public class Main {
         System.out.println("\nPrint all employees method check");
         printAllNames(employees);
 
+        //find min salary by department method checker
+        System.out.println("\nMin salary by department check method");
+        System.out.println(findMinSalaryByDepartment(3));
+
+        //find max salary by department method checker
+        System.out.println("\nMax salary by department check method");
+        System.out.println(findMaxSalaryByDepartment(1));
+
+        //find salary expenditure by department method checker
+        System.out.println("\nSalary expenditure this month by department check method");
+        System.out.println("Spent on salaries this month in the department: " + spentOnSalariesByMonthByDep(1));
+
+        //find average salary by department method checker
+        System.out.println("\nAverage salary by department check method");
+        System.out.println(findAverageSalaryByDepartment(1));
+
         //index salaries check method
         System.out.println("\nindex salaries check method");
         Employee[] indexedEmployees = indexSalaries(employees, 15);
         printAllEmployees(indexedEmployees);
 
-        //find min salary by department method checker
-        System.out.println("\nmin salary by department check method");
-        System.out.println(findMinSalaryByDepartment(employees,3));
-
+        // print employees by department method checker
+        System.out.println("\nPrint employees by department method check");
+       printAllEmployeesByDepartment(1);
 
     }
-
-
 
     public static long spentOnSalariesThisMonth() {
         long overallSalaries = 0;
@@ -102,6 +117,54 @@ public class Main {
         }
     }
 
+
+    public static Employee findMinSalaryByDepartment(int department) {
+        Employee employeeMinSalary = new Employee("A", 1, 1000000);
+        for (int i = 0; i < employees.length; i++) {
+            if (department == employees[i].getDepartment()) {
+                if (employeeMinSalary.getSalary() > employees[i].getSalary()) {
+                    employeeMinSalary = employees[i];
+                }
+            }
+        }
+        return employeeMinSalary;
+    }
+
+    private static Employee findMaxSalaryByDepartment(int department) {
+        Employee employeeMaxSalary = new Employee("A", 1, 0);
+        for (int i = 0; i < employees.length; i++) {
+            if (department == employees[i].getDepartment()) {
+                if (employeeMaxSalary.getSalary() < employees[i].getSalary()) {
+                    employeeMaxSalary = employees[i];
+                }
+            }
+        }
+        return employeeMaxSalary;
+    }
+
+    private static long spentOnSalariesByMonthByDep(int department) {
+        long overallSalaries = 0;
+        for (int i = 0; i < employees.length; i++) {
+            if (department == employees[i].getDepartment()) {
+                overallSalaries += employees[i].getSalary();
+            }
+        }
+        return overallSalaries;
+    }
+
+    private static long findAverageSalaryByDepartment(int department) {
+        long overallSalaries = 0;
+        int employeeCounter = 0;
+        for (int i = 0; i < employees.length; i++) {
+            if (department == employees[i].getDepartment()) {
+                overallSalaries += employees[i].getSalary();
+                employeeCounter++;
+            }
+        }
+        long averageSalaryByDepartment = overallSalaries/employeeCounter;
+        return averageSalaryByDepartment;
+    }
+
     public static Employee[] indexSalaries(Employee[] employees, int index) {
         for (Employee employee: employees) {
             long indexedSalary = employee.getSalary() + index*employee.getSalary()/100;
@@ -110,17 +173,11 @@ public class Main {
         return employees;
     }
 
-    public static Employee findMinSalaryByDepartment(Employee[] employees, int department) {
-        Employee employeeMinSalary = new Employee("A", 1, 2);
-        long minSalary = -1;
+    private static void printAllEmployeesByDepartment(int department) {
         for (int i = 0; i < employees.length; i++) {
             if (department == employees[i].getDepartment()) {
-                if (minSalary > employees[i].getSalary()) {
-                    minSalary = employees[i].getSalary();
-                    employeeMinSalary.equals(employees[i]);
-                }
+                System.out.println(employees[i]);
             }
         }
-        return employeeMinSalary;
     }
 }
